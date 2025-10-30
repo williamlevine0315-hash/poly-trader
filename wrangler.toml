@@ -1,20 +1,17 @@
-name = "s6"                  # <-- must match the Worker you’re visiting
-main = "dist/worker.mjs"     # the bundled file esbuild outputs
+# wrangler.toml
+name = "s6"
+main = "dist/worker.mjs"
 compatibility_date = "2025-10-30"
 workers_dev = true
 
-
-# IMPORTANT: enables Node built-ins (crypto, url, etc.) for clob-client
 compatibility_flags = ["nodejs_compat"]
 
 [vars]
 POLY_HOST = "https://clob.polymarket.com"
 CHAIN_ID = "137"
-# HUD_SHARED_SECRET = "set in dashboard"
-# PRIVATE_KEY = "set in dashboard (0x...)"
 
 [build]
-command = "npm ci && npm run build"
+command = "npm install --no-audit --no-fund && npm run build"
 
 [observability]
 enabled = true
