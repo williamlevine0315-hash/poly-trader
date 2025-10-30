@@ -1,0 +1,11 @@
+name = "poly-trader"
+main = "dist/worker.mjs"
+compatibility_date = "2024-11-01"
+workers_dev = true
+
+[vars]
+POLY_HOST = "https://clob.polymarket.com"
+CHAIN_ID  = "137"
+
+[observability]
+enabled = true
