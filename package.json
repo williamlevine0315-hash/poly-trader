@@ -4,7 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "esbuild worker.js --bundle --format=esm --platform=browser --main-fields=browser,module,main --define:global=\"globalThis\" --outfile=dist/worker.mjs"
+    "prebuild": "mkdir -p dist || true",
+    "build": "echo \"[build] esbuild starting\" && esbuild worker.js --bundle --format=esm --platform=browser --main-fields=browser,module,main --define:global=\\\"globalThis\\\" --outfile=dist/worker.mjs && node -e \"const fs=require('fs');console.log('[build] output', fs.existsSync('dist/worker.mjs')?'OK':'MISSING', fs.existsSync('dist/worker.mjs')?fs.statSync('dist/worker.mjs').size:0,'bytes')\"",
+    "check": "node -e \"console.log('main=dist/worker.mjs exists?', require('fs').existsSync('dist/worker.mjs'))\""
   },
   "dependencies": {
     "@polymarket/clob-client": "2.2.0",
