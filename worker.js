@@ -1,7 +1,7 @@
 // Modules Worker (ESM) — uses the BROWSER build of clob-client
 // Works on Cloudflare without node core modules.
 
-import { ClobClient } from "@polymarket/clob-client/dist/browser.js";
+import { ClobClient } from "@polymarket/clob-client/browser";
 import { ethers } from "ethers";
 
 export default {
