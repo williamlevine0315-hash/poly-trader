@@ -4,12 +4,13 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "esbuild worker.js --bundle --format=esm --platform=browser --main-fields=browser,module,main --conditions=browser --define:global=\"globalThis\" --log-level=debug --outfile=dist/worker.mjs",
+    "build": "esbuild worker.js --bundle --format=esm --platform=browser --main-fields=browser,module,main --conditions=browser --define:global=\"globalThis\" --outfile=dist/worker.mjs",
     "check": "node -e \"const fs=require('fs');console.log('dist/worker.mjs exists?',fs.existsSync('dist/worker.mjs'))\""
   },
   "dependencies": {
-    "@polymarket/clob-client": "2.2.0",
-    "ethers": "5.7.2"
+    "@polymarket/clob-client": "^4.22.8",
+    "ethers": "^5.7.2",
+    "tslib": "^2.6.2"
   },
   "devDependencies": {
     "esbuild": "0.21.5"
