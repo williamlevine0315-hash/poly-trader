@@ -1,7 +1,8 @@
-name = "poly-trader"
-main = "dist/worker.mjs"
-compatibility_date = "2024-11-01"
+name = "s6"                  # <-- must match the Worker you’re visiting
+main = "dist/worker.mjs"     # the bundled file esbuild outputs
+compatibility_date = "2025-10-30"
 workers_dev = true
+
 
 # IMPORTANT: enables Node built-ins (crypto, url, etc.) for clob-client
 compatibility_flags = ["nodejs_compat"]
