@@ -1,5 +1,4 @@
 // Modules Worker (ESM) — bundle for Node with Cloudflare nodejs_compat
-// Uses the standard clob-client entry (no /browser subpath).
 
 import { ClobClient } from "@polymarket/clob-client";
 import { Wallet } from "ethers";
