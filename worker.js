@@ -2,8 +2,8 @@
 // Works on Cloudflare without node core modules.
 
 // ✅ let esbuild resolve the browser build via "exports"
-import { ClobClient } from "@polymarket/clob-client";
-import { ethers } from "ethers";
+import { ClobClient } from "@polymarket/clob-client/browser"; // <- browser entry
+import { Wallet } from "ethers";
 
 
 export default {
