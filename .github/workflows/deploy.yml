@@ -1,0 +1,33 @@
+name: Deploy s6 Worker (versions API)
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build-upload:
+    runs-on: ubuntu-latest
+    env:
+      # ⚠️ TEMPORARY hardcoded testing values
+      CLOUDFLARE_ACCOUNT_ID: b6682674f94efd204e0200cd2718b566
+      CLOUDFLARE_API_TOKEN: mE5zNGyW63tXyiWJnFJvHbgOPhbBQbMc9B5CwAql
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Build bundle
+        run: npm run build
+        # produces dist/worker.mjs per your package.json
+
+      - name: Upload version to Cloudflare
+        run: npx wrangler versions upload
