@@ -3,9 +3,17 @@ main = "dist/worker.mjs"
 compatibility_date = "2024-11-01"
 workers_dev = true
 
+# IMPORTANT: enables Node built-ins (crypto, url, etc.) for clob-client
+compatibility_flags = ["nodejs_compat"]
+
 [vars]
 POLY_HOST = "https://clob.polymarket.com"
-CHAIN_ID  = "137"
+CHAIN_ID = "137"
+# HUD_SHARED_SECRET = "set in dashboard"
+# PRIVATE_KEY = "set in dashboard (0x...)"
+
+[build]
+command = "npm ci && npm run build"
 
 [observability]
 enabled = true
